@@ -1,4 +1,4 @@
-Given the root node of a binary search tree and two integers low and high, return the sum of values of all nodes with a value in the inclusive range [low, high].
+/*Given the root node of a binary search tree and two integers low and high, return the sum of values of all nodes with a value in the inclusive range [low, high].
 
  
 
@@ -21,4 +21,22 @@ Constraints:
 The number of nodes in the tree is in the range [1, 2 * 104].
 1 <= Node.val <= 105
 1 <= low <= high <= 105
-All Node.val are unique.
+All Node.val are unique.*\
+
+//CODE
+class Solution(object):
+    def rangeSumBST(self, root, low, high):
+        total = [0]
+        self.helper(root,low,high,total)
+        return total[0]
+        
+    def helper(self,root,low,high,total):
+        
+        if not root:
+            return 
+        
+        if low <= root.val <= high:
+            total[0] += root.val
+        
+        self.helper(root.left,low,high,total)
+        self.helper(root.right,low,high,total)
