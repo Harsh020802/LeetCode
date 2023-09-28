@@ -5,14 +5,5 @@ class Solution(object):
         :type nums: List[int]
         :rtype: List[int]
         """
-        even=[]
-        odd=[]
-        num=[]
-        k=len(nums)
-        for i in range (0,k):
-            if(nums[i]%2==0):
-                even.append(nums[i])
-            else:
-                odd.append(nums[i])
-        num=np.concatenate((even,odd))
-        return num
+        nums[:] = [i for i in nums if i%2==0] + [j for j in nums if j%2!=0]
+        return nums
