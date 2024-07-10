@@ -8,4 +8,4 @@ class Solution(object):
             else:
                 cur += vec[1]
                 sum += cur - vec[0]
-        return sum/len(customers)
+        return float(sum/len(customers))
