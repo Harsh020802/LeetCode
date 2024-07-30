@@ -1,22 +1,15 @@
-class Solution(object):
-    def searchInsert(self, nums, target):
-        """
-        :type nums: List[int]
-        :type target: int
-        :rtype: int
-        """
-        k=0
-        c=0
-        for i in range (0,len(nums)):
-            if(nums[i]==target):
-                c=1
-                return i
-        if(c==0):
-            for j in range(0,len(nums)):
-                if(target>nums[j]):
-                    k=j+1
-        return k
+class Solution:
+    def searchInsert(self, nums: List[int], target: int) -> int:
+        left, right = 0, len(nums) - 1
 
-                
+        while right >= left:
+            mid = left + (right - left) // 2
 
-       
+            if nums[mid] == target:
+                return mid
+            elif nums[mid] > target:
+                right = mid - 1
+            else:
+                left = mid + 1
+
+        return left
